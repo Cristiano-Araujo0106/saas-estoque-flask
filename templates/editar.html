@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="form-box">
+    <h2>Cadastro de Produto</h2>
+
+    <form method="POST">
+        <input name="nome" placeholder="Nome do produto" value="{{ produto[1] if produto }}">
+        <input name="preco" type="number" step="0.01" placeholder="Preço" value="{{ produto[2] if produto }}">
+        <input name="quantidade" type="number" placeholder="Quantidade" value="{{ produto[3] if produto }}">
+        <button>Salvar</button>
+    </form>
+
+</div>
+
+{% endblock %}

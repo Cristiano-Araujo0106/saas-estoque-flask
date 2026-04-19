@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Novo Produto</h2>
+<p class="sub">Adicione um item ao estoque</p>
+
+<form method="POST" class="auth-box">
+    <input name="nome" placeholder="Nome do produto">
+    <input name="preco" placeholder="Preço">
+    <input name="quantidade" placeholder="Quantidade">
+
+    <button>Salvar produto</button>
+</form>
+
+{% endblock %}

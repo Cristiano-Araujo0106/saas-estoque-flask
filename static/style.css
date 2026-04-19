@@ -1,0 +1,174 @@
+:root {
+    --bg: #0b1220;
+    --panel: #111827;
+    --panel2: #0f172a;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --primary: #6366f1;
+    --danger: #ef4444;
+    --border: rgba(255,255,255,0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* NAVBAR REAL DE SISTEMA */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 22px;
+    background: #0f172a;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar .logo {
+    font-weight: 600;
+}
+
+.navbar a {
+    margin-left: 14px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 16px;
+}
+
+/* TITULOS */
+h2 {
+    margin-bottom: 6px;
+}
+
+.sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* GRID KPIs */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+/* CARD */
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+}
+
+/* HOVER SUAVE REAL */
+.card:hover {
+    transform: translateY(-3px);
+    transition: 0.2s;
+}
+
+/* CHART */
+canvas {
+    background: var(--panel2);
+    padding: 10px;
+    border-radius: 12px;
+    margin: 18px 0;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--panel2);
+    color: white;
+}
+
+/* BOTÃO */
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/* AÇÕES */
+.actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.edit {
+    background: var(--primary);
+    color: white;
+}
+
+.delete {
+    background: var(--danger);
+    color: white;
+}
+
+/* LOGIN */
+.auth-box {
+    max-width: 380px;
+    margin: 70px auto;
+    background: var(--panel);
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+/* ALERTA */
+.alert {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+/* RESPONSIVO REAL */
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+.alert {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+}

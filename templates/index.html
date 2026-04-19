@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Dashboard</h2>
+<p class="sub">Painel operacional do estoque</p>
+
+<!-- KPIs REAIS -->
+<div class="grid">
+
+<div class="card">
+    <h3>📦 Produtos</h3>
+    <p>{{ total_produtos }}</p>
+</div>
+
+<div class="card">
+    <h3>📊 Itens em estoque</h3>
+    <p>{{ total_itens }}</p>
+</div>
+
+<div class="card">
+    <h3>💰 Valor total</h3>
+    <p>R$ {{ valor_total }}</p>
+</div>
+
+</div>
+
+<!-- GRÁFICO ÚTIL -->
+<canvas id="grafico"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const nomes = [{% for p in produtos %}"{{ p[1] }}",{% endfor %}];
+const qtds = [{% for p in produtos %}{{ p[3] }},{% endfor %}];
+
+new Chart(document.getElementById("grafico"), {
+    type: "bar",
+    data: {
+        labels: nomes,
+        datasets: [{
+            label: "Estoque atual",
+            data: qtds,
+            backgroundColor: "#6366f1"
+        }]
+    }
+});
+</script>
+
+<!-- ALERTA DE NEGÓCIO -->
+{% for p in produtos %}
+{% if p[3] <= 5 %}
+<div class="alert">
+⚠ Produto com baixo estoque: <b>{{ p[1] }}</b> ({{ p[3] }})
+</div>
+{% endif %}
+{% endfor %}
+
+<!-- LISTA -->
+<div class="grid">
+{% for p in produtos %}
+<div class="card">
+    <h3>{{ p[1] }}</h3>
+    <p>💰 R$ {{ p[2] }}</p>
+    <p>📦 {{ p[3] }}</p>
+
+    <div class="actions">
+        <a class="btn edit" href="/editar/{{ p[0] }}">Editar</a>
+        <a class="btn delete" href="/deletar/{{ p[0] }}">Excluir</a>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}

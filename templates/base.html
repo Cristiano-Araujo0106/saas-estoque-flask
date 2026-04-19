@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Estoque</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">📦 Estoque</div>
+
+    <div>
+        <a href="/home">Dashboard</a>
+        <a href="/cadastrar" class="highlight">+ Novo produto</a>
+        <a href="/logout">Sair</a>
+    </div>
+</div>
+
+<div class="container">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert">
+      {% for msg in messages %}
+        {{ msg }}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+{% block content %}{% endblock %}
+
+</div>
+
+</body>
+</html>
